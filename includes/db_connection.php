@@ -1,6 +1,6 @@
 <?php
-	$username='root';
-$password='7029';
+    $username='root';
+$password='Fdx&Ups2009';
 $database='cms';
 
 $mysqli = new mysqli('localhost', $username, $password, $database);
@@ -9,5 +9,5 @@ $mysqli = new mysqli('localhost', $username, $password, $database);
 if ($mysqli->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
-	}
+    }
 ?>
