@@ -12,11 +12,19 @@
       <div class="row">
         <div id="log-in" class="large-6 medium-10 large-centered medium-centered callout secondary columns">
             <h3>Log In</h3>
-                <form>
-                    <input type="text" placeholder="Username">
-                    <input type="password" placeholder="Password">
+                <form name="login" method="post">
+                    <input id="email" type="email" class="error" required="required" placeholder="Email">
+                    <input id="password" type="password" required="required" placeholder="Password">
+                    <div class="row">
+                        <div class="large-6 medium-6 small-6 left columns">
+                            <input id="rememeberLogin" type="checkbox"><label for="rememeberLogin">Remember Login</label>
+                        </div>
+                        <div class="large-6 medium-6 small-6 right columns">
+                            <a href="forgot_password.php"><p>Forgot password?</p></a>
+                        </div>
+                    </div>
                 </form>
-            <button type="button" class="success button">Sign In</button>
+            <button name="Submit" value="Submit" type="button" class="success button">Sign In</button>
         </div>
       </div>
     <script src="js/vendor/jquery.min.js"></script>
