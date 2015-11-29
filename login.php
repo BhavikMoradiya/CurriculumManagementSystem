@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                         </form>
-                    <button name="Submit" value="Submit" method="post" type="button" class="success button">Sign In</button>
+                    <button name="Submit" value="Submit" method="post" type="button" class="button">Sign In</button>
                 </div>
               </div>
 <?php
