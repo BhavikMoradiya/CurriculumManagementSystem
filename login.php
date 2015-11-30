@@ -34,7 +34,7 @@
     </head>
     <body>
         <div class="row">
-                <div id="log-in" class="large-6 medium-10 large-centered medium-centered callout secondary columns">
+                <div id="vPush" class="large-6 medium-10 large-centered medium-centered callout secondary columns">
                     <h3>Log In</h3>
                         <form name="Submit" method="post">
                             <input id="email" type="email" class="error" required="required" placeholder="Email">
