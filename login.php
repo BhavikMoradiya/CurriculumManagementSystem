@@ -33,38 +33,34 @@
         <link rel="stylesheet" href="css/app.css" />
     </head>
     <body>
-        <div class="row">
-                <div id="vPush" class="large-6 medium-10 large-centered medium-centered callout secondary columns clearfix">
-                    <img src="images/LogoRayBelieve.png" class="float-center">
-                    <h3>Log In</h3>
-                        <form name="Submit" method="post">
-                            <input id="email" type="email" class="error" required="required" placeholder="Email">
-                            <input id="password" type="password" required="required" placeholder="Password">
-                            <div class="row">
-                                <div class="large-6 medium-6 small-6 left columns">
-                                    <input id="rememeberLogin" type="checkbox"><label for="rememeberLogin">Remember Login</label>
+        <form name="Submit" method="POST">
+            <div class="row">
+                    <div id="vPush" class="large-6 medium-10 large-centered medium-centered callout secondary columns clearfix">
+                        <img src="images/LogoRayBelieve.png" class="float-center">
+                        <h3>Log In</h3>
+                                <input id="email" type="email" class="error" required="required" placeholder="Email">
+                                <input id="password" type="password" required="required" placeholder="Password">
+                                <div class="row">
+                                    <div class="large-6 medium-6 small-6 left columns">
+                                        <input id="rememeberLogin" type="checkbox"><label for="rememeberLogin">Remember Login</label>
+                                    </div>
+                                    <div class="large-6 medium-6 small-6 right columns">
+                                        <a href="forgot_password.php"><p>Forgot password?</p></a>
+                                    </div>
                                 </div>
-                                <div class="large-6 medium-6 small-6 right columns">
-                                    <a href="forgot_password.php"><p>Forgot password?</p></a>
-                                </div>
-                            </div>
-                        </form>
-                    <button name="Submit" value="Submit" method="post" type="button" class="button">Sign In</button>
-                </div>
-              </div>
-<?php
-        if(isset($_POST['Submit']))
-        {
-            if($query)
+                        <button name="Submit" value="Submit" method="POST" type="button" class="button">Sign In</button>
+                    </div>
+                  </div>
+    <?php
+            if(isset($_POST['Submit']))
             {
-                ?>
-        <div class="alert callout" data-closable>
-            <h6>Error: You entered an invalid username or password. Please try again.</h6>
-            <button class="close-button" aria-label="Dismiss alert" type="button">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-
+                if($query)
+                {
+                    ?>
+            <div class="alert callout" data-closable>
+                <h6>Error: You entered an invalid username or password. Please try again.</h6>
+            </div>
+        </form>
 <?php
             }
         }

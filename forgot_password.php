@@ -13,7 +13,7 @@
         <div class="row">
             <div id="vPush" class="large-6 medium-10 large-centered medium-centered callout secondary clearfix columns">
                  <img src="images/LogoRayBelieve.png" class="float-center">
-                <h3>Log In</h3>
+                <h3>Forgot Password</h3>
                     <form action="change.php" method="POST">
                         <input id="email" type="email" class="error" required="required" placeholder="Email">
                     </form>
