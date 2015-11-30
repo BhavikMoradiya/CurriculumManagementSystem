@@ -10,16 +10,16 @@
         <link rel="stylesheet" href="css/app.css" />
     </head>
     <body>
-        <div class="row">
-            <div id="vPush" class="large-6 medium-10 large-centered medium-centered callout secondary clearfix columns">
-                 <img src="images/LogoRayBelieve.png" class="float-center">
-                <h3>Forgot Password</h3>
-                    <form action="change.php" method="POST">
-                        <input id="email" type="email" class="error" required="required" placeholder="Email">
-                    </form>
-                <button name="ForgotPassword" value=" Request Reset " method="POST" type="button submit" class="button">Submit</button>
+        <form action="change.php" method="POST">
+            <div class="row">
+                <div id="vPush" class="large-6 medium-10 large-centered medium-centered callout secondary clearfix columns">
+                     <img src="images/LogoRayBelieve.png" class="float-center">
+                    <h3>Forgot Password</h3>
+                            <input id="email" type="email" class="error" required="required" placeholder="Email">
+                    <button name="ForgotPassword" value=" Request Reset " method="POST" type="button submit" class="button">Submit</button>
+                </div>
             </div>
-        </div>
+        </form>
         <script src="js/vendor/jquery.min.js"></script>
         <script src="js/vendor/what-input.min.js"></script>
         <script src="js/foundation.min.js"></script>
