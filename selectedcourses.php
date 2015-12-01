@@ -110,20 +110,18 @@ echo "Curriculum Year"." ".$y; ;
 	}
 	}
 	?>
-      
-      
   </table>
   <table class="gradienttable">
     <tr>
     <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
-    <input type="text" name="Search" placeholder="Search for course"/>
+    <input type="text" name="Search" placeholder="Search for course" size="30"/>
     <input type="button" value="Search"/>
     </tr>
     <tr>
       <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><label></label><div align="left"><a href="view_modify2.php?id=<?php
 	  $curid=isset($_GET['id']) ? $_GET['id'] : '';
 	  
-	   echo $curid ;?>target="rightframe"><input type="button" value="View Courses"/a></div></th>
+	   echo $curid ;?>target="rightframe"><input type="button" value="View Courses" style="width:200px; height:30px;"/a></div></th>
     </tr>
     <tr>
       <th height="22" colspan="8" bgcolor="#009966" scope="row"><div align="left" class="style5">Select Courses To Add To The Curriculm</div></th>
