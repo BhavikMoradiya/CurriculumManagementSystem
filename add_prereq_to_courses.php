@@ -19,6 +19,11 @@ include("includes/db_connection.php"); ?>
 <form  id="form" name="form" method="post" action="">
   <table class="gradienttable">
     <tr>
+    <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
+    <input type="text" name="Search" placeholder="Search for course"/>
+    <input type="button" value="Search"/>
+    </tr>
+    <tr>
       <th height="26" colspan="7" bgcolor="#009966" scope="row">&nbsp;</th>
     </tr>
     <tr>
@@ -35,7 +40,7 @@ include("includes/db_connection.php"); ?>
 	
  
  
- $sql2 =  "SELECT * FROM courses ORDER BY course_code";
+ $sql2 =  "SELECT * FROM courses ORDER BY semester_ava ";
  
 $result = $mysqli->query($sql2);
 

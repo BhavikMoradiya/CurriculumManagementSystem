@@ -110,13 +110,20 @@ echo "Curriculum Year"." ".$y; ;
 	}
 	}
 	?>
+      
+      
   </table>
   <table class="gradienttable">
     <tr>
-      <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="left"><a href="view_modify2.php?id=<?php
+    <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
+    <input type="text" name="Search" placeholder="Search for course"/>
+    <input type="button" value="Search"/>
+    </tr>
+    <tr>
+      <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><label></label><div align="left"><a href="view_modify2.php?id=<?php
 	  $curid=isset($_GET['id']) ? $_GET['id'] : '';
 	  
-	   echo $curid ;?>"/a>View Courses In This Currculme </div></th>
+	   echo $curid ;?>target="rightframe"><input type="button" value="View Courses"/a></div></th>
     </tr>
     <tr>
       <th height="22" colspan="8" bgcolor="#009966" scope="row"><div align="left" class="style5">Select Courses To Add To The Curriculm</div></th>
@@ -129,7 +136,6 @@ echo "Curriculum Year"." ".$y; ;
       <td width="53"><div align="center"><strong>Credits</strong></div></td>
       <td width="248"><div align="center"><strong>Prerequisite Courses</strong></div></td>
       <td width="133"><div align="center"><strong>Semester Available</strong></div></td>
-      <td width="135"><div align="center"><strong>Course Description</strong></div></td>
     </tr>
     <?php
 
@@ -143,7 +149,7 @@ while($res = mysqli_fetch_assoc($sqlcheckgroup)) {
 }
 
 
-$sql1 = ("SELECT * FROM courses ORDER BY course_code ");
+$sql1 = ("SELECT * FROM courses ORDER BY semester_ava ");
 $result = $mysqli->query($sql1);
 
 
@@ -228,24 +234,6 @@ if ($result3->num_rows > 0) {
 	  
 	  
 	  
-	  ?>
-      </div></td>
-      <td><div align="center">
-          <?php $sems= $row["course_desc"];
-       
-	  $desc=$row['course_desc'];
-	  $sql4 = "SELECT course_code FROM courses WHERE course_id='$desc'";
-	  $result4 = $mysqli->query($sql4);
-         if ($desc==0){
-	  <tr>
-          <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right"><a href="addcoursedescription.php?id=<?php
-	  $curid=isset($_GET['id']) ? $_GET['id'] : '';
-	  
-	   echo $curid ;?>"/a>Add Course Description</div></th>
-    </tr>
-    <tr>
-		}
-		
 	  ?>
       </div></td>
     </tr>

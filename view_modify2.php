@@ -76,10 +76,15 @@ echo "Curriculum Year"." ".$y; ;
   </table>
   <table class="gradienttable">
     <tr>
+    <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
+    <input type="text" name="Search" placeholder="Search for course"/>
+    <input type="button" value="Search"/>
+    </tr>
+    <tr>
       <th height="24" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="left" class="style1"><a href="selectedcourses.php?id=<?php
 	  $curid=isset($_GET['id']) ? $_GET['id'] : '';
 	  
-	   echo $curid ;?>"/a>Select More Courses To Add To This Curriculum </div></th>
+	   echo $curid ;?>target="rightframe"><input type="button" value="Add More Courses"/a></div></th>
     </tr>
     <tr>
       <th height="23" colspan="7" bgcolor="#009966" scope="row"><div align="left" class="style5">View/Modify Curriculm </div></th>
@@ -98,7 +103,7 @@ echo "Curriculum Year"." ".$y; ;
 	 $curid=isset($_GET['id']) ? $_GET['id'] : '';
  
  
- $sql2 =  "SELECT * FROM curriculumcourses INNER JOIN courses ON curriculumcourses.course_id = courses.course_id WHERE curriculum_id='$curid' ORDER BY curriculumcourses.set_number ASC,courses.course_code DESC";
+ $sql2 =  "SELECT * FROM curriculumcourses INNER JOIN courses ON curriculumcourses.course_id = courses.course_id WHERE curriculum_id='$curid' ORDER BY curriculumcourses.set_number ASC,courses.semester_ava  DESC";
  
 $result = $mysqli->query($sql2);
 
