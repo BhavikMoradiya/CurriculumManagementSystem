@@ -1,19 +1,30 @@
 <?php include("includes/db_connection.php"); ?>
 <?php
     session_start();
+    $email = '';
+    $password = '';
     if(isset($_POST['Submit']))
     {
-        $email=$_POST["email"];
-        $password=md5($_POST["password"]);
-        $email=stripslashes($email);
-        $password=stripslashes($password);
-        $email=mysqli_real_escape_string ($mysqli,$email);
-        $password=mysqli_real_escape_string ($mysqli,$password);
+
+if(isset($_POST['email']))
+{
+    $email = $_POST['email'];
+    $email=stripslashes($email);
+     $email=mysqli_real_escape_string ($mysqli,$email);
+}
+if(isset($_POST['password']))
+{
+    $password = md5($_POST['password']);
+    $password=stripslashes($password);
+    $password=mysqli_real_escape_string ($mysqli,$password);
+}
+
         $query=$mysqli->query("select email,password from users where email='$email' and password='$password' ");
+
         if($row=mysqli_fetch_array($query))
         {
             $_SESSION['email']=$email;
-
+            echo $_SESSION;
             if(isset($re))
              {
                 setcookie("email",$email,time()+3600);
@@ -33,7 +44,7 @@
         <link rel="stylesheet" href="css/app.css" />
     </head>
     <body>
-        <form name="Submit" method="POST">
+        <form id="form" name="form" method="post" action="index.php">
             <div class="row">
                     <div id="vPush" class="large-6 medium-10 large-centered medium-centered callout secondary columns clearfix">
                         <img src="images/LogoRayBelieve.png" class="float-center">
@@ -48,7 +59,8 @@
                                         <a href="forgot_password.php"><p>Forgot password?</p></a>
                                     </div>
                                 </div>
-                        <button name="Submit" value="Submit" method="POST" type="button" class="button">Sign In</button>
+                        <button name="Submit" value="Submit" method="POST" type="Submit" class="button">Sign In</button>
+
                     </div>
                   </div>
     <?php
@@ -60,11 +72,12 @@
             <div class="alert callout" data-closable>
                 <h6>Error: You entered an invalid username or password. Please try again.</h6>
             </div>
-        </form>
+
 <?php
             }
         }
 ?>
+</form>
         <script src="js/vendor/jquery.min.js"></script>
         <script src="js/vendor/what-input.min.js"></script>
         <script src="js/foundation.min.js"></script>
