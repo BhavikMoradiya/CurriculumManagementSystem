@@ -124,7 +124,7 @@ body {
 <li>
   <div align="center">
     <div align="center"><a href="admincp.php" target="main">Main Page </a></div>
-    <a href="changepassword.php" target="main">Change Pssword </a></div>
+    <a href="changepassword.php" target="main">Change Password </a></div>
 </li>
 <li>
   <div align="center"><a href="addnewmajor.php" target="main"><strong>Add New Major</strong></a>
