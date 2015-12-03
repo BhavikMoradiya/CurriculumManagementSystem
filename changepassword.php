@@ -22,21 +22,43 @@ if (isset($_POST['Submit']))
 {
 
     
-$password1=md5($_POST["newpw"]);
+$password1=($_POST["newpw"]);
 $password1=stripslashes($password1);
 $password1=mysqli_real_escape_string ($mysqli,$password1);
-$password2=md5($_POST["retypepw"]);
+$password2=($_POST["retypepw"]);
 $password2=stripslashes($password2);
 $password2=mysqli_real_escape_string ($mysqli,$password2);
 
 
-if ($password1 <> $password2) {
+$book_selected =  $mysqli->real_escape_string($_SESSION["email"]);
+$query = 'SELECT password FROM users WHERE email=\'' . $book_selected . '\''; 
+
+
+
+$result = $mysqli->query($query);
+if ($result->num_rows > 0) 
+    {
+        $row = $result->fetch_assoc();
+$password_Old = $row["password"];
+$old = $_POST["oldpw"];
+
+if($password_Old <> $old)
+{
+    echo '<div class="alert-box error"><span>error: </span>Your old password is not matched.</div>';
+    
+
+    
+}
+elseif ($password1 <> $password2) {
 
  echo '<div class="alert-box error"><span>error: </span>Your passwords do not match.</div>';
 
 }
 
-if ($password1 ==$password2) {
+
+
+elseif ($password1 ==$password2) 
+{
 $email=$_SESSION["email"];
 
 $sql =  $mysqli->query("update users set password='$password1' where email='$email' ");
@@ -47,6 +69,13 @@ if (isset($sql)) {
 
 }
 }
+         
+
+} 
+   
+////echo $result;
+
+
 }
 ?>
 <body>
@@ -55,7 +84,10 @@ if (isset($sql)) {
     <tr>
       <th height="20" colspan="2" scope="row">&nbsp;</th>
     </tr>
-
+    <tr>
+      <th width="147" height="34" scope="row">Old password:</th>
+      <td width="290"><input name="oldpw" type="password" id="oldpw" required="required" /></td>
+    </tr>
     <tr>
       <th width="147" height="34" scope="row">New password:</th>
       <td width="290"><input name="newpw" type="password" id="newpw" required="required" /></td>
