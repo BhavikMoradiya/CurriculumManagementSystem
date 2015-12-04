@@ -6,6 +6,7 @@
     if(isset($_POST['Submit']))
     {
 
+// follwoing function giving problems for Carlin and Gruss
 if(isset($_POST['email']))
 {
     $email = $_POST['email'];
