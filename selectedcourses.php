@@ -14,24 +14,6 @@ include("includes/db_connection.php"); ?>
 <?php include("style.css"); ?>
 </head>
 
-<?php
-  if(isset($_POST['Submit']) AND $_POST['Submit'] == 'Submit')
-{
-     
-  if(isset($_GET['go'])){
-  if(preg_match("/^[a-zA-Z]+/", $_POST['search'])){
-  $search = isset($_POST['search']) ? $_POST['search'] : '';
-  $result = "SELECT course_code FROM courses WHERE course_id='$search' ";
-  $resultinfo = $mysqli->query($result);
-  if ($resultinfo->num_rows > 0) {
-   while($row = $resultinfo->fetch_assoc()){
-  echo $row['course_code'];     
-}
-}
-}
-}
-}
-?>
 	 <?php
 
 if(isset($_POST['Submit']) AND $_POST['Submit'] == 'Submit')
@@ -133,8 +115,8 @@ echo "Curriculum Year"." ".$y; ;
   <table class="gradienttable">
     <tr>
     <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
-    <input type="text" name="Search" placeholder="Search for course" size="30"onclick="search"/>
-    <input type="submit" value="Search" name="Search"/>
+    <input type="text" name="txtSearch" placeholder="Search for course" style="width:200px; height:25px;" />
+    <input type="submit" value="Search" name="btnSearch"/>
     </tr>
     <tr>
       <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><label></label><div align="left"><a href="view_modify2.php?id=<?php
@@ -165,8 +147,13 @@ while($res = mysqli_fetch_assoc($sqlcheckgroup)) {
 	
 }
 
-
+if(isset($_POST["txtSearch"]) && isset($_POST["btnSearch"]) && trim($_POST["txtSearch"]) != "") {
+    $searchtext = trim($_POST["txtSearch"]);
+    $sql1 = ("SELECT * FROM courses where course_name like '%$searchtext%' ORDER BY semester_ava");
+}
+else {
 $sql1 = ("SELECT * FROM courses ORDER BY semester_ava ");
+}
 $result = $mysqli->query($sql1);
 
 
