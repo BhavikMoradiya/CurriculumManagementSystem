@@ -58,7 +58,7 @@ width: 250px; /*width of accordion menu*/
 .arrowlistmenu .menuheader{ /*CSS class for menu headers in general (expanding or not!)*/
 font: bold 14px Arial;
 color: #FFFFFF;
-background: #009966 url(titlebar.png) repeat-x center left;
+background: #990000 url(titlebar.png) repeat-x center left;
 margin-bottom: 10px; /*bottom spacing between header and rest of content*/
 text-transform: uppercase;
 padding: 4px 0 4px 10px; /*header text is indented 10px*/
@@ -82,7 +82,7 @@ padding-bottom: 5px; /*bottom spacing between menu items*/
 }
 
 .arrowlistmenu ul li a{
-color: #333333;
+color: #990000 ;
 background: url(arrowbullet.png) no-repeat center left; /*custom bullet list image*/
 display: block;
 padding: 2px 0;
@@ -94,12 +94,12 @@ font-size: 90%;
 }
 
 .arrowlistmenu ul li a:visited{
-color: #333333;
+color: #990000 ;
 }
 
 .arrowlistmenu ul li a:hover{ /*hover state CSS*/
-color: #009966;
-background-color: #F3F3F3;
+color: #e6b800;
+background-color: #F2f2f2f2;
 }
 
 .style1 {font-size: 16px}
@@ -124,7 +124,7 @@ body {
 <li>
   <div align="center">
     <div align="center"><a href="admincp.php" target="main">Main Page </a></div>
-    <a href="changepassword.php" target="main">Change Password </a></div>
+    <a href="changepassword.php" target="main">Change Pssword </a></div>
 </li>
 <li>
   <div align="center"><a href="addnewmajor.php" target="main"><strong>Add New Major</strong></a>

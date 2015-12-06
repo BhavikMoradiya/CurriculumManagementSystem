@@ -19,7 +19,7 @@ if ($_REQUEST['do'] == index)
 </body>
 </html>
 
-<?php
+<?
 }
 
 ?> 

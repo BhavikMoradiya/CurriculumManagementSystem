@@ -1,121 +1,79 @@
 <?php include("includes/db_connection.php"); ?>
+<?php include("includes/db_connection.php"); ?>
 <?php
-session_start();
-//this is for testing change
+    session_start();
 
-if(isset($_POST['Submit']))
-{
+      if(isset($_POST['Submit']))
+        {
 
-$email=$_POST["email"];
-$password=($_POST["password"]);
-$email=stripslashes($email);
-$password=stripslashes($password);
-$email=mysqli_real_escape_string ($mysqli,$email);
-$password=mysqli_real_escape_string ($mysqli,$password);
-
-$query=$mysqli->query("select email,password from users where email='$email' and password='$password' ");
+          $email=$_POST["email"];
+          $password=md5($_POST["password"]);
+          $email=stripslashes($email);
+          $password=stripslashes($password);
+          $email=mysqli_real_escape_string ($mysqli,$email);
+          $password=mysqli_real_escape_string ($mysqli,$password);
+          $query=$mysqli->query("select email,password from users where email='$email' and password='$password' ");
  
-if($row=mysqli_fetch_array($query))
-{
-$_SESSION['email']=$email;
-
- if(isset($re))
- {
- setcookie("email",$email,time()+3600);
- }
- header("location:index.php");
+           if($row=mysqli_fetch_array($query))
+            {
+             $_SESSION['email']=$email;
+              if(isset($re))
+               {
+                 setcookie("email",$email,time()+3600);
+              }
+          header("location:index.php");
  
-}
-}
+          }
+        }
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Curriculum Management System</title>
-
-<?php include("style.css"); ?>
-</head>
-
-<body>
-<p>&nbsp;</p>
-<table width="200" border="0">
-  <tr>
-    <th scope="row"><img src="footerLogo.gif" alt="" width="135" height="76" longdesc="https://my.gannon.edu/" /></th>
-  </tr>
-</table>
-<table width="229" class="gradienttable">
-  <tr>
-    <th width="221" height="19" scope="row"><span class="style2">Curriculum Management System</span></th>
-  </tr>
-</table>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<div align="center">
-  <form id="form" name="form" method="post" action="">
-    <p>&nbsp;</p>
-    <table class="gradienttable">
-      <tr>
-        <th height="29" colspan="2" bgcolor="#009966" scope="row"><span class="style2">Login To  Control Panel</span></th>
-      </tr>
-      <tr>
-        <th width="185" scope="row">Email:</th>
-        <td width="416"><label>
-          <input name="email" type="text" id="email" required="required" />
-        </label></td>
-      </tr>
-      <tr>
-        <th scope="row">Password:</th>
-        <td><input name="password" type="password" id="password" required="required"/></td>
-      </tr>
-      <tr>
-        <td height="27" colspan="2" bgcolor="#CCCCCC" scope="row"><div align="left"><a href="forgot_password.php">Forgot You Password? </a></div></td>
-      </tr>
-      <tr>
-        <th height="27" colspan="2" bgcolor="#CCCCCC" scope="row"><div align="left">
-            <label>
-            <input name="re" type="checkbox" id="re" value="checkbox" />
-            </label>
-            <span class="style2">Remember Me</span>       </div></th>
-      </tr>
-      <tr>
-        <th height="39" colspan="2" bgcolor="#CCCCCC" scope="row"><span class="style3">
-          <label><a href="foregtpassword.php"></a></label>
-        </span>
-          <div align="center"><span class="style2">
-            <input type="submit" name="Submit" value="Submit" />
-        </span></div></th>
-      </tr>
-    </table>
-	
-    <p>
-      <?php
-
-if(isset($_POST['Submit']))
-{
-if($query)
-		{
-?>
- 
-	
-	<div class="alert-box error"><span>error: </span>You entered an invalid username or password. Please try again.</div>
-	  <?php
-	}
-	}
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Curriculum Management | Log In</title>
+        <link rel="stylesheet" href="css/foundation.css" />
+        <link rel="stylesheet" href="css/app.css" />
+    </head>
+    <body>
+        <form id="form" name="form" method="POST" action="">
+            <div class="row">
+                    <div id="vPush" class="large-6 medium-10 large-centered medium-centered callout secondary columns clearfix">
+                        <img src="images/LogoRayBelieve.png" class="float-center">
+                        <h3>Log In</h3>
+                                <input name="email" type="email" id="email" required="required" placeholder="email">
+                                <input name="password" type="password" id="password" required="required" placeholder="Password">
+                                <div class="row">
+                                    <div class="large-6 medium-6 small-6 left columns">
+                                        <input id="rememeberLogin" type="checkbox"><label for="rememeberLogin">Remember Login</label>
+                                    </div>
+                                    <div class="large-6 medium-6 small-6 right columns">
+                                        <a href="forgot_password.php"><p>Forgot password?</p></a>
+                                    </div>
+                                </div>
+                        <button name="Submit" value="Submit" type="submit" class="button">Sign In</button>
+                    </div>
+                  </div>
+				  
+    <?php
+            if(isset($_POST['Submit']))
+            {
+                if($query)
+                {
+                    ?>
+            <div class="alert callout" data-closable>
+                <h6>Error: You entered an invalid username or password. Please try again.</h6>
+            </div>
+	<?php
+				}
+			}
 	?>
-    </p>
-	<p>&nbsp;</p>
-	<p>&nbsp;</p>
-  </form>
-  <p>&nbsp;</p>
-  <table  class="gradienttable">
-    <tr>
-      <th width="245" scope="row"><a href="Hussain_almaleki.php"target="_parent" >Developed by Hussain Almaleki </a></th>
-    </tr>
-  </table>
-  <p><a href="Hussain_almaleki.php"target="_parent" ></a></p>
-</div>
-
+	
+		</form>
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/what-input.min.js"></script>
+        <script src="js/foundation.min.js"></script>
+        <script src="js/app.js"></script>
 </body>
 </html>

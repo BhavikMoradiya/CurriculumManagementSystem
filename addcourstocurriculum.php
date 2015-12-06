@@ -97,7 +97,7 @@ if ($result->num_rows > 0) {
 
 ?>
     <tr>
-      <th height="27" scope="row"><div align="center"><a href="selectedcourses.php?id=<?php echo $row['curriculum_id'];?>"/a><?php
+      <th height="27" scope="row"><div align="center"><a href="addDescription.php?id=<?php echo $row['curriculum_id'];?>"/a><?php
 	  
 	    $date=$row["startdate"];
 	  

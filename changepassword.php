@@ -22,10 +22,10 @@ if (isset($_POST['Submit']))
 {
 
     
-$password1=($_POST["newpw"]);
+$password1= md5($_POST["newpw"]);
 $password1=stripslashes($password1);
 $password1=mysqli_real_escape_string ($mysqli,$password1);
-$password2=($_POST["retypepw"]);
+$password2= md5($_POST["retypepw"]);
 $password2=stripslashes($password2);
 $password2=mysqli_real_escape_string ($mysqli,$password2);
 
@@ -40,7 +40,7 @@ if ($result->num_rows > 0)
     {
         $row = $result->fetch_assoc();
 $password_Old = $row["password"];
-$old = $_POST["oldpw"];
+$old = md5($_POST["oldpw"]);
 
 if($password_Old <> $old)
 {

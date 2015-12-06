@@ -23,10 +23,15 @@ body {
 }
 -->
 </style>
-<body>
 
+<body>
 <form  id="form" name="form" method="post" action="">
   <table class="gradienttable">
+    <tr>
+    <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
+    <input type="text" name="txtSearch" placeholder="Search for course" style="width:200px; height:25px;" />
+    <input type="submit" value="Search" name="btnSearch"/>
+    </tr>
     <tr>
       <th height="21" colspan="7" bgcolor="#009966" scope="row">&nbsp;</th>
     </tr>
@@ -37,6 +42,7 @@ body {
       <th width="249"><div align="center">Prerequisite Courses</div></th>
       <th width="86"><div align="center">Credits</div></th>
       <th width="169"><div align="center">Semester Available</div></th>
+    
     </tr>
 
 	<?php
@@ -44,9 +50,18 @@ body {
 	
  
  
- $sql2 =  "SELECT * FROM courses ORDER BY course_code";
+ $sql2 =  "SELECT * FROM courses ORDER BY semester_ava ";
  
 $result = $mysqli->query($sql2);
+
+if(isset($_POST["txtSearch"]) && isset($_POST["btnSearch"]) && trim($_POST["txtSearch"]) != "") {
+    $searchtext = trim($_POST["txtSearch"]);
+    $sql1 = ("SELECT * FROM courses where course_name like '%$searchtext%' ORDER BY semester_ava");
+}
+else {
+$sql1 = ("SELECT * FROM courses ORDER BY semester_ava ");
+}
+$result = $mysqli->query($sql1);
 
 if ($result->num_rows > 0) {
   

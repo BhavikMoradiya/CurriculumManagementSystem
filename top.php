@@ -8,30 +8,34 @@
 <style type="text/css">
 <!--
 body {
-	background-color: #009966;
+	background-color: #990000;
 }
 .style1 {font-weight: bold}
 .style2 {
 	color: #FFFFFF;
 	font-weight: bold;
 	font-family: "Times New Roman", Times, serif;
-	font-size: 18px;
+	font-size: 20px;
 }
 -->
 </style></head>
 
 <body>
 <form id="form1" name="form1" method="post" action="">
-  <label></label>
-  <p class="style4">
-    <label></label>
+	
+  <p align="center" class="style1"> <span class="style2">Curriculum Management System</span>
+  <img align="left" src="footerLogo.gif" alt="" width="135" height="87" longdesc="https://my.gannon.edu/" /><br />
   </p>
-  <p align="left" class="style1"> <span class="style2">Curriculum Management System</span><br />
-  </p>
+
+   
   <p class="style1">&nbsp;</p>
   <p class="style1">&nbsp;</p>
   <p class="style1">&nbsp;</p>
   <p class="style1">&nbsp;</p>
+  <p class="style1">&nbsp;</p>
+  <p class="style1">&nbsp;</p>
+  <p class="style1">&nbsp;</p>
+ 
 </form>
 </body>
 </html>

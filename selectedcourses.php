@@ -13,6 +13,7 @@ include("includes/db_connection.php"); ?>
 
 <?php include("style.css"); ?>
 </head>
+
 	 <?php
 
 if(isset($_POST['Submit']) AND $_POST['Submit'] == 'Submit')
@@ -113,10 +114,15 @@ echo "Curriculum Year"." ".$y; ;
   </table>
   <table class="gradienttable">
     <tr>
-      <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="left"><a href="view_modify2.php?id=<?php
+    <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
+    <input type="text" name="txtSearch" placeholder="Search for course" style="width:200px; height:25px;" />
+    <input type="submit" value="Search" name="btnSearch"/>
+    </tr>
+    <tr>
+      <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><label></label><div align="left"><a href="view_modify2.php?id=<?php
 	  $curid=isset($_GET['id']) ? $_GET['id'] : '';
 	  
-	   echo $curid ;?>"/a>View Courses In This Currculme </div></th>
+	   echo $curid ;?>target="rightframe"><input type="button" value="View Courses" style="width:200px; height:30px;"/a></div></th>
     </tr>
     <tr>
       <th height="22" colspan="8" bgcolor="#009966" scope="row"><div align="left" class="style5">Select Courses To Add To The Curriculm</div></th>
@@ -141,8 +147,13 @@ while($res = mysqli_fetch_assoc($sqlcheckgroup)) {
 	
 }
 
-
-$sql1 = ("SELECT * FROM courses ORDER BY course_code ");
+if(isset($_POST["txtSearch"]) && isset($_POST["btnSearch"]) && trim($_POST["txtSearch"]) != "") {
+    $searchtext = trim($_POST["txtSearch"]);
+    $sql1 = ("SELECT * FROM courses where course_name like '%$searchtext%' ORDER BY semester_ava");
+}
+else {
+    $sql1 = ("SELECT * FROM courses ORDER BY semester_ava ");
+}
 $result = $mysqli->query($sql1);
 
 
@@ -229,12 +240,14 @@ if ($result3->num_rows > 0) {
 	  
 	  ?>
       </div></td>
+
     </tr>
     <?php
  }
  }
  
  ?>
+
     <tr>
       <th colspan="8" bgcolor="#009966" scope="row"><label>
         <input type="submit" name="Submit" value="Submit" />
@@ -249,14 +262,15 @@ if ($result3->num_rows > 0) {
 	?>
   </p>
   <p>&nbsp; </p>
-  <table width="327" border="0">
-	
-      <tr>
-        <th width="321" bgcolor="#00CCFF" scope="row"><span class="style10 style2">Selected Courses has been added successfully</span></th>
-      </tr>
-  </table>
+  
+  
 	<p>
-	  <?php 
+	  <?php
+	  if(isset($sql2))
+	{
+print '<div style="position: absolute; top: 5px; left: 200px; width: 340px; height: 30px; background-color: #990000; color: #ffffff;"><h>Selected Courses has been added successfully</div>';
+	
+	}
 	}
 	?>
   <p>&nbsp;</p>

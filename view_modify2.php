@@ -32,6 +32,8 @@ include("includes/db_connection.php");
 $resultin = "SELECT * FROM curriculum INNER JOIN majors on curriculum.major_code=majors.major_code  WHERE curriculum_id='$curid' ";
 $resultinfo = $mysqli->query($resultin);
 
+
+
 if ($resultinfo->num_rows > 0) {
    
     while($rowinfo = $resultinfo->fetch_assoc()) {
@@ -76,13 +78,18 @@ echo "Curriculum Year"." ".$y; ;
   </table>
   <table class="gradienttable">
     <tr>
+    <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
+    <input type="text" name="txtSearch" placeholder="Search for course" style="width:200px; height:25px;" />
+    <input type="submit" value="Search" name="btnSearch"/>
+    </tr>
+    <tr>
       <th height="24" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="left" class="style1"><a href="selectedcourses.php?id=<?php
 	  $curid=isset($_GET['id']) ? $_GET['id'] : '';
 	  
-	   echo $curid ;?>"/a>Select More Courses To Add To This Curriculum </div></th>
+	   echo $curid ;?>target="rightframe"><input type="button" value="Add More Courses"style="width:200px; height:30px;/a></div></th>
     </tr>
-    <tr>
-      <th height="23" colspan="7" bgcolor="#009966" scope="row"><div align="left" class="style5">View/Modify Curriculm </div></th>
+ <tr>
+      <th height="23" colspan="7" bgcolor="#009966" scope="row"></th>
     </tr>
     <tr>
       <th width="83" height="27" scope="row"><div align="center">Delete</div></th>
@@ -95,12 +102,23 @@ echo "Curriculum Year"." ".$y; ;
     </tr>
     <?php
 	
+
 	 $curid=isset($_GET['id']) ? $_GET['id'] : '';
- 
- 
- $sql2 =  "SELECT * FROM curriculumcourses INNER JOIN courses ON curriculumcourses.course_id = courses.course_id WHERE curriculum_id='$curid' ORDER BY curriculumcourses.set_number ASC,courses.course_code DESC";
+         
+
+ $sql2 =  "SELECT * FROM curriculumcourses INNER JOIN courses ON curriculumcourses.course_id = courses.course_id WHERE curriculum_id='$curid' ORDER BY curriculumcourses.set_number ASC,courses.semester_ava  ASC";
  
 $result = $mysqli->query($sql2);
+
+if(isset($_POST["txtSearch"]) && isset($_POST["btnSearch"]) && trim($_POST["txtSearch"]) != "") {
+    $searchtext = trim($_POST["txtSearch"]);
+    $sql1 = ("SELECT * FROM courses where course_name like '%$searchtext%' ORDER BY semester_ava");
+}
+else {
+    $sql1 = ("SELECT * FROM courses ORDER BY semester_ava ");
+}
+$result = $mysqli->query($sql1);
+
 
 if ($result->num_rows > 0) {
   
@@ -112,11 +130,11 @@ if ($result->num_rows > 0) {
 ?>
     <tr>
       <th scope="row"><div align="center">
-          <input name="checkbox[]" type="checkbox" id="checkbox[]" value="<?php echo $row["course_id"]; ?>" />
+          <input name="checkbox[]" type="checkbox" id="checkbox[]" value="<?php echo $row["semester_ava"]; ?>" />
       </div></th>
       <th height="32" scope="row"><div align="center">
         <?php 
-	  $group=$row["set_number"];
+	  $group=  isset($row["set_number"]) ? $row["set_number"]:'';
 	  
 	 
 	  

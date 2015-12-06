@@ -19,7 +19,7 @@ include("includes/db_connection.php"); ?>
     if($sqlcheck->num_rows == 0){
 	
 		$sql=$mysqli->query("INSERT INTO `majors`(`major_code`, `major_name`, `grad_undergrad`) VALUES ('". $mcode ."', '". $mname ."','". $select ."')");
-	
+	print '<meta http-equiv="refresh"   content="0; url=addnewcur.php">';
 
 }
 
@@ -63,7 +63,8 @@ include("includes/db_connection.php"); ?>
     </tr>
     <tr>
       <th height="36" colspan="2" bgcolor="#009966" scope="row"><label></label>
-          <input type="submit" name="Submit" value="Submit" /></th>
+          <input type="submit" name="Submit" Value="Submit" /></th>
+       
     </tr>
   </table>
   <p>
