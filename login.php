@@ -7,7 +7,8 @@
         {
 
           $email=$_POST["email"];
-          $password=md5($_POST["password"]);
+          //$password=md5($_POST["password"]);
+		  $password=($_POST["password"]);
           $email=stripslashes($email);
           $password=stripslashes($password);
           $email=mysqli_real_escape_string ($mysqli,$email);
