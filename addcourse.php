@@ -272,7 +272,7 @@ $(document).ready(function($) {
   ?>
   <table height="113" class="gradienttable">
     <tr>
-      <th height="21" colspan="2" bgcolor="#0099FF" scope="row"><div align="left" class="style1">These  Courses Has Been Added Successfully</div></th>
+      <th height="21" colspan="2" bgcolor="#0099FF" scope="row"><div align="left" class="style1">These Courses Have Been Added Successfully</div></th>
     </tr>
     <tr>
       <th width="130" height="27" bgcolor="#E6E6FA" scope="row">Course Code </th>
