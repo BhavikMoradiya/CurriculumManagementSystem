@@ -114,13 +114,13 @@ echo "Curriculum Year"." ".$y; ;
     <input type="text" name="txtSearch" placeholder="Search for course" style="width:200px; height:25px;" />
     <input type="submit" value="Search" name="btnSearch"/>
     </tr>
-	 
-    <tr>
-      <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="left"><a href="view_modify2.php?id=<?php
+	 <tr>
+      <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><label></label><div align="left"><a href="view_modify2.php?id=<?php
 	  $curid=isset($_GET['id']) ? $_GET['id'] : '';
 	  
-	   echo $curid ;?>"/a>View Courses In This Currculme </div></th>
+	   echo $curid ;?>target="rightframe"><input type="button" value="View Courses" style="width:200px; height:30px;"/a></div></th>
     </tr>
+
 	
     <tr>
       <th height="22" colspan="8" bgcolor="#009966" scope="row"><div align="left" class="style5">Select Courses To Add To The Curriculm</div></th>
@@ -261,7 +261,7 @@ if ($result3->num_rows > 0) {
     <?php 
 	if(isset($sql2))
 	{
-	/*?>
+	?>
   </p>
   <p>&nbsp; </p>
   <table width="327" border="0">
@@ -270,10 +270,8 @@ if ($result3->num_rows > 0) {
         <th width="321" bgcolor="#00CCFF" scope="row"><span class="style10 style2">Selected Courses has been added successfully</span></th>
       </tr>
   </table>
-	<p>*/
-	
-	print '<div style="position: absolute; top: 5px; left: 200px; width: 340px; height: 30px; background-color: #990000; color: #ffffff;"><h>Selected Courses have been added successfully</div>';
-	 
+	<p>
+	  <?php 
 	}
 	?>
   <p>&nbsp;</p>
