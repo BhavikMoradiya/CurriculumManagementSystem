@@ -268,7 +268,7 @@ if ($result3->num_rows > 0) {
 	  <?php
 	  if(isset($sql2))
 	{
-print '<div style="position: absolute; top: 5px; left: 200px; width: 340px; height: 30px; background-color: #990000; color: #ffffff;"><h>Selected Courses has been added successfully</div>';
+print '<div style="position: absolute; top: 5px; left: 200px; width: 340px; height: 30px; background-color: #990000; color: #ffffff;"><h>Selected Courses have been added successfully</div>';
 	
 	}
 	}
