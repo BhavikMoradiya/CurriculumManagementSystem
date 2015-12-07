@@ -336,7 +336,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`) VALUES
-(1, 'tang002@gannon.edu', 'ac86cabae707c1d7b2b9a5749607a3d9');
+(1, 'tang002@gannon.edu', 'ac86cabae707c1d7b2b9a5749607a3d9'),
+(2, 'abd@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710') // password is "22"
+;
 
 
 --
