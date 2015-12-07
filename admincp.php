@@ -29,20 +29,14 @@ table.gradienttable {	font-family: verdana,arial,sans-serif;
 <body>
 <div align="right">
   <p><a href="logout.php" target="_top">Log out</a></p>
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
+
   <div align="center">
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
+    
+        <img src="images/Team.jpg" alt="" width="500" height="370" longdesc="https://my.gannon.edu/" />
+    
+    
     <p><a href="Hussain_almaleki.php"target="main" >Developed by Hussain Almaleki </a></p>
+    <p><a href="Hussain_almaleki.php"target="main" >Updated by Dream Team</a></p>
   </div>
   </div>
 <p>&nbsp;</p>
