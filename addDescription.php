@@ -261,7 +261,7 @@ if ($result3->num_rows > 0) {
     <?php 
 	if(isset($sql2))
 	{
-	?>
+	/*?>
   </p>
   <p>&nbsp; </p>
   <table width="327" border="0">
@@ -270,8 +270,10 @@ if ($result3->num_rows > 0) {
         <th width="321" bgcolor="#00CCFF" scope="row"><span class="style10 style2">Selected Courses has been added successfully</span></th>
       </tr>
   </table>
-	<p>
-	  <?php 
+	<p>*/
+	
+	print '<div style="position: absolute; top: 5px; left: 200px; width: 340px; height: 30px; background-color: #990000; color: #ffffff;"><h>Selected Courses have been added successfully</div>';
+	 
 	}
 	?>
   <p>&nbsp;</p>
