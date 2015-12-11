@@ -79,7 +79,7 @@ echo "Curriculum Year"." ".$y; ;
   <table class="gradienttable">
     <tr>
     <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
-    <input type="text" name="txtSearch" placeholder="Search for course" style="width:200px; height:25px;" />
+    <input type="text" name="txtSearch" placeholder="Search by course name/code" style="width:200px; height:25px;" />
     <input type="submit" value="Search" name="btnSearch"/>
     </tr>
     <tr>
@@ -112,7 +112,7 @@ $result = $mysqli->query($sql2);
 
 if(isset($_POST["txtSearch"]) && isset($_POST["btnSearch"]) && trim($_POST["txtSearch"]) != "") {
     $searchtext = trim($_POST["txtSearch"]);
-    $sql1 = ("SELECT * FROM courses where course_name like '%$searchtext%' ORDER BY semester_ava");
+    $sql1 = ("SELECT * FROM courses where course_name like '%$searchtext%' OR course_code like '%$searchtext%'ORDER BY semester_ava");
 }
 else {
     $sql1 = ("SELECT * FROM courses ORDER BY semester_ava ");
