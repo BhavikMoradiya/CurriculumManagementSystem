@@ -2,6 +2,9 @@
 <?php
 session_start();
 //this is for testing change
+
+
+
 $id = $_GET['id'];
 $crid = $_GET['curid'];
 $sql = "select * from course_description where course_id = '$id' and curriculum_id = '$crid'";
@@ -16,6 +19,18 @@ $sql = "select * from course_description where course_id = '$id' and curriculum_
                                 $curriculum_id = $row["curriculum_id"];
                                 $hdntacdetails = $row["id"];
                             }
+$sql_1 = "select * from courses where course_id = '$id'";
+                            $result_1 = $mysqli->query($sql_1);
+                            $course_name = "";
+                            $courase_code = "";
+                            $course_credit = "";
+                            while($row = $result_1->fetch_assoc())
+                            {
+                                $course_name = $row["course_name"];
+                                $courase_code = $row["course_code"];
+                                $course_credit = $row["credits"];
+                            }
+                                                  
 if (isset($_POST['Submit'])) 
     {
         $cdetail = $_POST["tacdetails"];
@@ -67,10 +82,32 @@ if (isset($_POST['Submit']))
             <table>
                 <tr>
                     <th>
-                        Add description
+                        Course Code: 
                     </th>
+                    <td>
+                        <?php echo $courase_code;?>
+                    </td>
                 </tr>
                 <tr>
+                    <th>
+                        Course Name:
+                    </th>
+                    <td>
+                        <?php echo $course_name;?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Course Credits:
+                    </th>
+                    <td>
+                        <?php echo $course_credit;?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Add description:
+                    </th>
 
                     <td>
                         
