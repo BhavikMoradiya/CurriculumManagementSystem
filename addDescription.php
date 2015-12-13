@@ -268,7 +268,7 @@ if ($result3->num_rows > 0) {
                      }
                      else
                      {
-                         $dec = "Update/Delete ";
+                         $dec = "View/Update ";
                      }
                       //echo $dec;
            ?>

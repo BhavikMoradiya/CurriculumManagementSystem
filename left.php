@@ -160,7 +160,7 @@ body {
 <h3 align="center" class="menuheader expandable style1">Course Description Tracking</h3>
 <ul class="categoryitems">
 <li>
-  <div align="center"><a href="addcourstocurriculum.php" target="main" >Add/Tracking Course  Description</a></div>
+  <div align="center"><a href="addcourstocurriculum.php" target="main" >View/Update Course  Description</a></div>
 </li>
 
 </ul>
