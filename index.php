@@ -19,7 +19,7 @@ if (!(isset($_SESSION["email"])))
 		<div class="top-bar">
 		  <div class="top-bar-left">
 		    <ul class="dropdown menu" data-dropdown-menu>
-		      <li class="menu-text">Curriculum Management System</li>
+		      <li class="menu-text"><a href="view_modfiymajor.php" target="bodyFrame">Curriculum Management System</a></li>
 		    </ul>
 		  </div>
 		  <div class="top-bar-right">
@@ -73,7 +73,7 @@ if (!(isset($_SESSION["email"])))
 			</ul>
 		</div>
 		<div id="iframe" class="large-9 medium-9 columns">
-			<iframe src="admincp.php" name="bodyFrame" height="100%" width="100%"></iframe>
+			<iframe src="admincp.php" name="bodyFrame" height="100%" width="100%" frameBorder="0"></iframe>
 		</div>
 	</div>
         <script src="js/vendor/jquery.min.js"></script>

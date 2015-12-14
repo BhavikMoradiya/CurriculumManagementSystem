@@ -4,19 +4,19 @@ if (!(isset($_SESSION["email"])))
  header("location:login.php");
 }
 ?>
+<?php include("includes/db_connection.php"); ?> 
 
-  <?php include("includes/db_connection.php"); ?> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<?php include("style.css"); ?>
-</head>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Curriculum Management | Change Password</title>
+        <link rel="stylesheet" href="css/foundation.css" />
+        <link rel="stylesheet" href="css/app.css" />
+    </head>
 <?php
-
-
- 
-
 if (isset($_POST['Submit']))
 {
 
@@ -43,14 +43,20 @@ $old = md5($_POST["oldpw"]);
 
 if($password_Old <> $old)
 {
-    echo '<div class="alert-box error"><span>error: </span>Your old password is not matched.</div>';
+    echo ' <div class="callout alert">
+		<h5>Passwords Do Not Match</h5>
+		<p>The password entered does not match the old password.</p>
+	</div>';
     
 
     
 }
 elseif ($password1 <> $password2) {
 
- echo '<div class="alert-box error"><span>error: </span>Your passwords do not match.</div>';
+ echo '<div class="callout alert">
+		<h5>Passwords Do Not Match</h5>
+		<p>The new passwords entered do not match.</p>
+	</div>';
 
 }
 
@@ -64,7 +70,9 @@ $sql =  $mysqli->query("update users set password='$password1' where email='$ema
 
 if (isset($sql)) {
 
- echo '<div class="alert-box success"><span>success: </span>Your passwords has been changed.</div>';
+ echo '<div class="callout success">
+		<h5>Your Password Has Been Changed</h5>
+	</div>';
 
 }
 }
@@ -78,39 +86,16 @@ if (isset($sql)) {
 }
 ?>
 <body>
-<form id="form1" name="form1" method="post" action="">
-  <table class="gradienttable">
-    <tr>
-      <th height="20" colspan="2" scope="row">&nbsp;</th>
-    </tr>
-    <tr>
-      <th width="147" height="34" scope="row">Old password:</th>
-      <td width="290"><input name="oldpw" type="password" id="oldpw" required="required" /></td>
-    </tr>
-    <tr>
-      <th width="147" height="34" scope="row">New password:</th>
-      <td width="290"><input name="newpw" type="password" id="newpw" required="required" /></td>
-    </tr>
-    <tr>
-      <th width="147" height="31" scope="row"><strong>Confirm Password:</th>
-      <td width="290"><input name="retypepw" type="password" id="retypepw" required="required" /></td>
-    </tr>
-    <tr>
-      <th colspan="2" scope="row"><label>
-        <input type="submit" name="Submit" value="Submit" />
-      </label></th>
-    </tr>
-  </table>
+<form id="form1" name="form1" method="POST" action="">
+    <div class="row">
+        <div id="vPush" class="large-6 medium-10 large-centered medium-centered callout secondary columns clearfix">
+                <h3>Change Password</h3>
+                    <input name="oldpw" type="password" id="oldpw" required="required" placeholder="Old Password">
+					<input name="newpw" type="password" id="newpw" required="required" placeholder="New Password">
+					<input name="retypepw" type="password" id="retypepw" required="required" placeholder="Retype Password">
+            <button name="Submit" value="Submit" type="submit" class="button">Submit</button>
+        </div>
+    </div>
 </form>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>
-
-</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp; </p>
 </body>
 </html>
