@@ -44,18 +44,18 @@ if (!(isset($_SESSION["email"])))
 			  <li>
 			    <a href="#">Curriculum Tracking</a>
 			    <ul class="menu vertical nested">
-			      <li><a href="addnewcur.php">Add New Curriculum</a></li>
-			      <li><a href="view_modify.php">View / Modify Curriculum</a></li>
-			      <li><a href="addcourse.php">Add Course</a></li>
-			      <li><a href="View_modfiycourse.php">View / Modify Courses</a></li>
-			      <li><a href="add_prereq_to_courses.php">Add Prerequisite to Course</a></li>
-			      <li><a href="addcourstocurriculum.php">Add Course to Curriculum</a></li>
+			      <li><a href="addnewcur.php" target="bodyFrame">Add New Curriculum</a></li>
+			      <li><a href="view_modify.php" target="bodyFrame">View / Modify Curriculum</a></li>
+			      <li><a href="addcourse.php" target="bodyFrame">Add Course</a></li>
+			      <li><a href="View_modfiycourse.php" target="bodyFrame">View / Modify Courses</a></li>
+			      <li><a href="add_prereq_to_courses.php" target="bodyFrame">Add Prerequisite to Course</a></li>
+			      <li><a href="addcourstocurriculum.php" target="bodyFrame">Add Course to Curriculum</a></li>
 			    </ul>
 			  </li>
 			  <li>
 			    <a href="#">Course Description Tracking</a>
 			    <ul class="menu vertical nested">
-			      <li><a href="addcourstocurriculum.php">View and Update Course Description</a></li>
+			      <li><a href="addcourstocurriculum.php" target="bodyFrame">View and Update Course Description</a></li>
 			<!--      
 				  <li><a href="#">Add Description from Text File</a></li>
 			      <li><a href="#">View / Modify Course Descriptions </a></li>
@@ -65,7 +65,7 @@ if (!(isset($_SESSION["email"])))
 			  <li>
 			    <a href="#">Reports Center</a>
 			    <ul class="menu vertical nested">
-			      <li><a href="display_courses_needed.php">Display Courses Needed</a></li>
+			      <li><a href="display_courses_needed.php target="bodyFrame"">Display Courses Needed</a></li>
 			    </ul>
 			  </li>
 			</ul>
