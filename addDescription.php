@@ -114,12 +114,12 @@ echo "Curriculum Year"." ".$y; ;
     <input type="text" name="txtSearch" placeholder="Search for course" style="width:200px; height:25px;" />
     <input type="submit" value="Search" name="btnSearch"/>
     </tr>
-	 <tr>
+<!--	 <tr>
       <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><label></label><div align="left"><a href="view_modify2.php?id=<?php
 	  $curid=isset($_GET['id']) ? $_GET['id'] : '';
 	  
 	   echo $curid ;?>target="rightframe"><input type="button" value="View Courses" style="width:200px; height:30px;"/a></div></th>
-    </tr>
+    </tr>-->
 
 	
     <tr>
