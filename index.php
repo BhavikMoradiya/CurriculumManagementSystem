@@ -16,22 +16,21 @@ if (!(isset($_SESSION["email"])))
         <link rel="stylesheet" href="css/foundation.css" />
         <link rel="stylesheet" href="css/app.css" />
     </head>
-	<div id="full-height" class="row">
-		 <div class="row">
-		<!--<iframe src="top.php" width="100%"></iframe>-->
 		<div class="top-bar">
 		  <div class="top-bar-left">
-		    	<img src="footerLogo.gif" width="135" height="87" alt="https://my.gannon.edu/" /><br />
+		    <ul class="dropdown menu" data-dropdown-menu>
+		      <li class="menu-text">Curriculum Management System</li>
+		    </ul>
 		  </div>
 		  <div class="top-bar-right">
-			<ul> 
-				<li class="menu-text">Curriculum Management System</li>
-			</ul>
+		    <ul class="menu">
+				<li><a href="logout.php" target="_top">Log Out</a></li>
+		    </ul>
 		  </div>
 		</div>
-    </div>	
 		<div id="left-nav" class="large-3 medium-3 columns">
 			<ul class="vertical menu" data-accordion-menu>
+			  <hr/>
 			  <li>
 			    <a href="#">General</a>
 			    <ul class="menu vertical nested is-active">
@@ -41,17 +40,19 @@ if (!(isset($_SESSION["email"])))
 			      <li><a href="view_modfiymajor.php" target="bodyFrame">View / Modify Major</a></li> 
 			    </ul>
 			  </li>
+			  <hr>
 			  <li>
 			    <a href="#">Curriculum Tracking</a>
 			    <ul class="menu vertical nested">
 			      <li><a href="addnewcur.php" target="bodyFrame">Add New Curriculum</a></li>
 			      <li><a href="view_modify.php" target="bodyFrame">View / Modify Curriculum</a></li>
 			      <li><a href="addcourse.php" target="bodyFrame">Add Course</a></li>
-			      <li><a href="View_modfiycourse.php" target="bodyFrame">View / Modify Courses</a></li>
+			      <li><a href="view_modify_courses.php" target="bodyFrame">View / Modify Courses</a></li>
 			      <li><a href="add_prereq_to_courses.php" target="bodyFrame">Add Prerequisite to Course</a></li>
 			      <li><a href="addcourstocurriculum.php" target="bodyFrame">Add Course to Curriculum</a></li>
 			    </ul>
 			  </li>
+			  <hr/>
 			  <li>
 			    <a href="#">Course Description Tracking</a>
 			    <ul class="menu vertical nested">
@@ -62,10 +63,11 @@ if (!(isset($_SESSION["email"])))
 			-->
 			    </ul>
 			  </li>
+			  <hr/>
 			  <li>
 			    <a href="#">Reports Center</a>
 			    <ul class="menu vertical nested">
-			      <li><a href="display_courses_needed.php target="bodyFrame"">Display Courses Needed</a></li>
+			      <li><a href="display_courses_needed.php" target="bodyFrame">Display Courses Needed</a></li>
 			    </ul>
 			  </li>
 			</ul>

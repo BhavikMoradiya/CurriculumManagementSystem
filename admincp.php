@@ -25,16 +25,14 @@ table.gradienttable {	font-family: verdana,arial,sans-serif;
 </style></head>
 
 <body>
-<div id="left">
-  <p><a href="logout.php" target="_top">Log out</a></p>
 
   <div id="center">
     
         <img src="images/Team.jpg" alt="" height="370" longdesc="https://my.gannon.edu/" />
     
     
-    <p><a href="Hussain_almaleki.php" target="main" >Developed by Hussain Almaleki </a></p>
-    <p><a href="dream_team.php" target="main" >Updated by the Dream Team</a></p>
+    <p><a href="Hussain_almaleki.php">Developed by Hussain Almaleki </a></p>
+    <p><a href="dream_team.php">Updated by the Dream Team</a></p>
   </div>
   </div>
 <p>&nbsp;</p>
