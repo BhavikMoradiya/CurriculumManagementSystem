@@ -5,16 +5,15 @@ if (!(isset($_SESSION["email"])))
  header("location:login.php");
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html class="no-js" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
+<meta charset="utf-8" />
 <style type="text/css">
-<!--
 body {
 	background-color: #E6E6FA;
 }
+
 table.gradienttable {	font-family: verdana,arial,sans-serif;
 	font-size:12px;
 	color:#333333;
@@ -23,20 +22,19 @@ table.gradienttable {	font-family: verdana,arial,sans-serif;
 	border-collapse: collapse;
 	font-weight: bold;
 }
--->
 </style></head>
 
 <body>
-<div align="right">
+<div id="left">
   <p><a href="logout.php" target="_top">Log out</a></p>
 
-  <div align="center">
+  <div id="center">
     
         <img src="images/Team.jpg" alt="" height="370" longdesc="https://my.gannon.edu/" />
     
     
-    <p><a href="Hussain_almaleki.php"target="main" >Developed by Hussain Almaleki </a></p>
-    <p><a href="dream_team.php"target="main" >Updated by the Dream Team</a></p>
+    <p><a href="Hussain_almaleki.php" target="main" >Developed by Hussain Almaleki </a></p>
+    <p><a href="dream_team.php" target="main" >Updated by the Dream Team</a></p>
   </div>
   </div>
 <p>&nbsp;</p>
