@@ -94,14 +94,7 @@ include("style.css");
          print '<option selected="selected"  value="0">Undergraduate</option>
          <option value="1">Graduate</option>';   
         }
-if($select=='No'){
-            
-            print '<option selected="selected"  value="00000">Select....</option>
-            <option value="0">Undergraduate</option>
-<option  value="1">Graduate</option>
-            
-            ';
-        }
+
         ?>
         
         
