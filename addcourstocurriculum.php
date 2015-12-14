@@ -45,8 +45,6 @@ if (!(isset($_SESSION["email"])))
           <input type="submit" name="Submit" value="View Avalable Curriculums " /></th>
     </tr>
   </table>
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
   
   <?php
   

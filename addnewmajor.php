@@ -1,30 +1,15 @@
 <?php 
 session_start(); 
+
 if (!(isset($_SESSION["email"])))
 {
  header("location:login.php");
 }
 
-include("includes/db_connection.php"); ?>
+include("includes/db_connection.php");
 
-<?php
-
-	if (isset($_POST['Submit'])) {
-	
-
-		$mcode  = $_POST['mcode'];
-		$mname = $_POST['mname'];
-		$select = $_POST['select'];
-			$sqlcheck =  $mysqli->query("select  major_code from majors  where major_code='$mcode'");
-    if($sqlcheck->num_rows == 0){
-	
-		$sql=$mysqli->query("INSERT INTO `majors`(`major_code`, `major_name`, `grad_undergrad`) VALUES ('". $mcode ."', '". $mname ."','". $select ."')");
-	print '<meta http-equiv="refresh"   content="0; url=addnewcur.php">';
-
-}
-
-}
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -33,7 +18,7 @@ include("includes/db_connection.php"); ?>
 <?php include("style.css"); ?>
 </head>
 <body>
-<form id="form" name="form" method="post" action="">
+<form id="form" name="form" method="post" action="addnewcur.php">
   <table class="gradienttable">
  <tr>
     <td height="25" bgcolor="#009966"><span class="style2">Add New Major</span></td>
@@ -63,7 +48,7 @@ include("includes/db_connection.php"); ?>
     </tr>
     <tr>
       <th height="36" colspan="2" bgcolor="#009966" scope="row"><label></label>
-          <input type="submit" name="Submit" Value="Submit" /></th>
+          <input type="submit" name="DoSubmit" Value="Submit" /></th>
        
     </tr>
   </table>
