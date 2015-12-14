@@ -28,9 +28,6 @@ table.gradienttable {	font-family: verdana,arial,sans-serif;
 
   <div id="center">
     
-        <img src="images/Team.jpg" alt="" height="370" longdesc="https://my.gannon.edu/" />
-    
-    
     <p><a href="Hussain_almaleki.php">Developed by Hussain Almaleki </a></p>
     <p><a href="dream_team.php">Updated by the Dream Team</a></p>
   </div>

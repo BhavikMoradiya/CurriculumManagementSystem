@@ -23,6 +23,6 @@
   </tr>
 </table>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
+<p style="text-align:center;"><img src="images/Team.jpg" alt="" height="370" longdesc="https://my.gannon.edu/" /></p>
 </body>
 </html>
