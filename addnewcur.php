@@ -1,12 +1,36 @@
 <?php
-session_start(); 
+session_start();
+
 if (!(isset($_SESSION["email"])))
 {
  header("location:login.php");
 }
 
  include("includes/db_connection.php"); 
+$mcode  = '0000000000';
+		$mname = 'Select the Major';
+		$select = 'No';
+?>
 
+<?php
+
+	if (isset($_POST['DoSubmit'])) {
+	
+
+		$mcode  = $_POST['mcode'];
+		$mname = $_POST['mname'];
+		$select = $_POST['select'];
+     
+			$sqlcheckmajor =  $mysqli->query("select  major_code from majors  where major_code='$mcode'");
+    if($sqlcheckmajor->num_rows == 0){
+	
+		$sqlmajor=$mysqli->query("INSERT INTO `majors`(`major_code`, `major_name`, `grad_undergrad`) VALUES ('". $mcode ."', '". $mname ."','". $select ."')");
+	
+    //print '<meta http-equiv="refresh"   content="0; url=addnewcur.php">';
+
+}
+
+}
 ?>
 <?php
 
@@ -38,7 +62,10 @@ if (!(isset($_SESSION["email"])))
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
-<?php include("style.css"); ?>
+<?php 
+
+include("style.css"); 
+?>
 </head>
 <body>
 <form id="form" name="form" method="post" action="">
@@ -54,9 +81,23 @@ if (!(isset($_SESSION["email"])))
     <th width="150" height="35" bgcolor="#DCDCDC" scope="row">Select Option: </th>
     <td width="898" bgcolor="#DCDCDC"><label>
       <select required="required" name="list-select" id="list-select" >
-        <option selected="selected" disabled="disabled">Please Select</option>
-        <option value="1">Graduate</option>
-        <option value="0">Undergraduate</option>
+      
+        <?php
+        if($select==1){
+            
+            print '<option selected="selected"  value="1">Graduate</option>
+            <option value="0">Undergraduate</option>
+            
+            ';
+        }
+        else{
+         print '<option selected="selected"  value="0">Undergraduate</option>
+         <option value="1">Graduate</option>';   
+        }
+
+        ?>
+        
+        
       </select>
     </label></td>
   </tr>
@@ -64,6 +105,18 @@ if (!(isset($_SESSION["email"])))
     <th bgcolor="#DCDCDC" scope="row">Select Major:</th>
     <td bgcolor="#DCDCDC"><label>
       <select required="required"  name="list-target" id="list-target">
+      <?php
+       print '<option selected="selected" value="'.$mcode.'">'.$mname.'</option>';
+    
+       	$sqlcheckmajor2 =  $mysqli->query("select  major_code,major_name from majors");
+        while($row2 = $sqlcheckmajor2->fetch_assoc()) {
+            
+            print '<option  value="'.$row2["major_code"].'">'.$row2["major_name"].'</option>'; 
+        }
+        
+        
+        
+       ?>
       </select>
     </label></td>
   </tr>
@@ -71,6 +124,7 @@ if (!(isset($_SESSION["email"])))
     <th bgcolor="#DCDCDC" scope="row">Start Date: </th>
     <td bgcolor="#DCDCDC"><label>
       <select name="start" id="start">
+ <option value="000000">Select Start Date</option>
         <option value="2020-01-12">Spring 2020</option>
         <option value="2020-08-27">Fall 2020</option>
         <option value="2019-01-12">Spring 2019</option>
@@ -146,38 +200,7 @@ if (!(isset($_SESSION["email"])))
 
 <div align="left">
   <p>
-  <script>
-$(document).ready(function($) {
-  var list_target_id = 'list-target'; //first select list ID
-  var list_select_id = 'list-select'; //second select list ID
-  var initial_target_html = '<option value="">Please select a Major...</option>'; //Initial prompt for target select
- 
-  $('#'+list_target_id).html(initial_target_html); //Give the target select the prompt option
- 
-  $('#'+list_select_id).change(function(e) {
-    //Grab the chosen value on first select list change
-    var selectvalue = $(this).val();
- 
-    //Display 'loading' status in the target select list
-    $('#'+list_target_id).html('<option value="">Loading...</option>');
- 
-    if (selectvalue == "") {
-        //Display initial prompt in target select if blank value selected
-       $('#'+list_target_id).html(initial_target_html);
-    } else {
-      //Make AJAX request, using the selected value as the GET
-      $.ajax({url: 'ajax-getvalues.php?svalue='+selectvalue,
-             success: function(output) {
-                //alert(output);
-                $('#'+list_target_id).html(output);
-            },
-          error: function (xhr, ajaxOptions, thrownError) {
-            alert(xhr.status + " "+ thrownError);
-          }});
-        }
-    });
-});
-  </script>  
+  
 
   <?php 
   	 if(isset($_POST['Submit'])) 

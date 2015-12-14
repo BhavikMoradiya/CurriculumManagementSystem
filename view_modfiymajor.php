@@ -13,7 +13,13 @@
 
 <form  id="form" name="form" method="post" action="">
   <table class="gradienttable">
+   <tr>
+    <td height="25" bgcolor="#009966"><span class="style2">View/Modify Majors</span></td>
+  </tr>
     <tr>
+      <th colspan="6" bgcolor="#009966" scope="row">Click on a Major Name to Edit</th>
+    </tr>
+	    <tr>
       <th colspan="6" bgcolor="#009966" scope="row">&nbsp;</th>
     </tr>
     <tr>
