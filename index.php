@@ -35,10 +35,10 @@ if (!(isset($_SESSION["email"])))
 			  <li>
 			    <a href="#">General</a>
 			    <ul class="menu vertical nested is-active">
-			      <li><a href="admincp.php">Main Page</a></li>
-			      <li><a href="changepassword.php">Change Password</a></li>
-			      <li><a href="addnewmajor.php">Add New Major</a></li>
-			      <li><a href="view_modfiymajor.php">View / Modify Major</a></li> 
+			      <li><a href="admincp.php" target="bodyFrame">Main Page</a></li>
+			      <li><a href="changepassword.php" target="bodyFrame">Change Password</a></li>
+			      <li><a href="addnewmajor.php" target="bodyFrame">Add New Major</a></li>
+			      <li><a href="view_modfiymajor.php" target="bodyFrame">View / Modify Major</a></li> 
 			    </ul>
 			  </li>
 			  <li>
@@ -71,10 +71,9 @@ if (!(isset($_SESSION["email"])))
 			</ul>
 		</div>
 		<div id="iframe" class="large-9 medium-9 columns">
-			<iframe src="changepassword.php" height="100%" width="100%"></iframe>
+			<iframe src="admincp.php" name="bodyFrame" height="100%" width="100%"></iframe>
 		</div>
 	</div>
-	
         <script src="js/vendor/jquery.min.js"></script>
         <script src="js/vendor/what-input.min.js"></script>
         <script src="js/foundation.min.js"></script>
