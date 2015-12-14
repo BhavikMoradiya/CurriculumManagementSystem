@@ -29,9 +29,21 @@ body {
   <table class="gradienttable">
     <tr>
     <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
-    <input type="text" name="txtSearch" placeholder="Search for course" style="width:200px; height:25px;" />
+    <input type="text" name="txtSearch" placeholder="Search by course name/code" style="width:200px; height:25px;" />
     <input type="submit" value="Search" name="btnSearch"/>
     </tr>
+	 <tr>
+    <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
+	<form name="semesterSort" action="" method="post">
+    <select name="semesterSelection">
+          <option>Filter Semester</option>
+          <option value="0">Fall</option>
+          <option value="1">Spring</option>
+          <option value="2">Both</option>
+     </select>
+	 <input type="submit" value="Submit" name="semesterBtn"/>
+	 </form>
+     </tr>
     <tr>
       <th height="21" colspan="7" bgcolor="#009966" scope="row">&nbsp;</th>
     </tr>
@@ -56,7 +68,11 @@ $result = $mysqli->query($sql2);
 
 if(isset($_POST["txtSearch"]) && isset($_POST["btnSearch"]) && trim($_POST["txtSearch"]) != "") {
     $searchtext = trim($_POST["txtSearch"]);
-    $sql1 = ("SELECT * FROM courses where course_name like '%$searchtext%' ORDER BY semester_ava");
+    $sql1 = ("SELECT * FROM courses where course_name like '%$searchtext%' OR course_code like '%$searchtext%' ORDER BY semester_ava");
+}
+elseif(isset($_POST["semesterBtn"])){
+	$semesterVar = $_POST["semesterSelection"];
+	$sql1 = ("SELECT * FROM courses where semester_ava='$semesterVar'");
 }
 else {
 $sql1 = ("SELECT * FROM courses ORDER BY semester_ava ");
