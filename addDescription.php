@@ -145,7 +145,7 @@ echo "Curriculum Year"." ".$y; ;
       <td width="53"><div align="center"><strong>Credits</strong></div></td>
       <td width="248"><div align="center"><strong>Prerequisite Courses</strong></div></td>
       <td width="133"><div align="center"><strong>Semester Available</strong></div></td>
-      <td width="202"><div align="center"><strong>Add Description</strong></div></td>
+      <td width="202"><div align="center"><strong>Manage Description</strong></div></td>
     </tr>
     <?php
 
@@ -243,7 +243,8 @@ if ($result3->num_rows > 0) {
 	  }
 	  ?>
       </div></td>
-      <td><div align="center">
+      <td>
+          <div align="center">
           <?php $sems= $row["semester_ava"];
 	  if ($sems==0){
 		echo "Fall ";
@@ -258,8 +259,41 @@ if ($result3->num_rows > 0) {
 	  
 	  
 	  ?>
-      </div></td>
-      <td><div align="center"><a href="addDescriptionForm.php?id=<?php  echo $row['course_id'];?> &curid=<?php echo $curid; ?>"/a>Add Description</div></td>
+          </div>
+      </td>
+      <td>
+          
+          <?php 
+                    $id1 = $row['course_id'];
+                   
+                $sql_2 = "select description from course_description where course_id = '$id1' and curriculum_id = '$curid'";
+                            $result_2 = $mysqli->query($sql_2);
+                      
+                            $course_d1 = "";
+                            while($row2 = $result_2->fetch_assoc())
+                            {
+                                $course_d1 = $row2["description"];
+                                
+                            }
+                          $dec;
+                     if($course_d1 == "")
+                     {
+                         
+//                        echo '<div align=center style=visibility: collapse><a href=addDescriptionForm.php?id='.$row['course_id'].'' ;
+                         $dec = "Add ";
+                     }
+                     else
+                     {
+                         $dec = "View/Update ";
+                     }
+                      //echo $dec;
+           ?>
+         
+             <div align="center"><a href="addDescriptionForm.php?id=<?php  echo $id1;?> &curid=<?php echo $curid; ?>"/a><?php echo $dec?> Description</div>
+          
+           
+                  
+     </td>
     </tr>
     <?php
  }
