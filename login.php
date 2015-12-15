@@ -53,9 +53,11 @@
                                     </div>
                                 </div>
                         <button name="Submit" value="Submit" type="submit" class="button">Sign In</button>
+                       
                     </div>
                   </div>
-				  
+				  <p><a href="Hussain_almaleki.php">Developed by Hussain Almaleki </a></p>
+				 <p><a href="dream_team.php">Updated by the Dream Team</a></p>
     <?php
             if(isset($_POST['Submit']))
             {

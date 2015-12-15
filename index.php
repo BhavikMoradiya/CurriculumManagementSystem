@@ -35,7 +35,6 @@ if (!(isset($_SESSION["email"])))
 			  <li>
 			    <a href="#">General</a>
 			    <ul class="menu vertical nested is-active">
-			      <li><a href="admincp.php" target="bodyFrame">Main Page</a></li>
 			      <li><a href="changepassword.php" target="bodyFrame">Change Password</a></li>
 			      <li><a href="addnewmajor.php" target="bodyFrame">Add New Major</a></li>
 			      <li><a href="view_modfiymajor.php" target="bodyFrame">View / Modify Major</a></li> 
