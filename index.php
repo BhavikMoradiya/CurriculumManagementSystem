@@ -12,14 +12,14 @@ if (!(isset($_SESSION["email"])))
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!--<title>Blank</title>-->
+        <title>Curriculum Management</title>
         <link rel="stylesheet" href="css/foundation.css" />
         <link rel="stylesheet" href="css/app.css" />
     </head>
 		<div class="top-bar">
 		  <div class="top-bar-left">
 		    <ul class="dropdown menu" data-dropdown-menu>
-		      <li class="menu-text"><a href="view_modfiymajor.php" target="bodyFrame">Curriculum Management System</a></li>
+			   <li><img src="images/CompInfoSci_Logo.png"/ alt="computer-science-department-logo"></li>
 		    </ul>
 		  </div>
 		  <div class="top-bar-right">
@@ -30,6 +30,7 @@ if (!(isset($_SESSION["email"])))
 		</div>
 		<div id="left-nav" class="large-3 medium-3 columns">
 			<ul class="vertical menu" data-accordion-menu>
+			<li class="menu-text"><a href="view_modfiymajor.php" target="bodyFrame">Curriculum Management System</a></li>
 			  <hr/>
 			  <li>
 			    <a href="#">General</a>

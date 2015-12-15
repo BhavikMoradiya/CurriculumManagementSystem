@@ -34,7 +34,7 @@ include("includes/db_connection.php");
     <tr>
       <th width="190" height="30" bgcolor="#DCDCDC" scope="row"><span class="style6">New Major Name: </span></th>
       <td width="887" bgcolor="#DCDCDC"><label>
-        <input name="mname" type="text" id="mname" required="required" />
+        <input name="mname" type="text" id="mname" required="required"/>
       </label></td>
     </tr>
     <tr>
