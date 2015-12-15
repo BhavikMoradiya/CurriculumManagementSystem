@@ -68,7 +68,7 @@ if (!(isset($_SESSION["email"])))
 			  <li>
 			    <a href="#">Reports Center</a>
 			    <ul class="menu vertical nested">
-			      <li><a href="display_courses_needed.php" target="bodyFrame">Display Courses Needed</a></li>
+			      <li><a href="view_modfiymajor.php" target="bodyFrame">Display Courses Needed</a></li>
 			    </ul>
 			  </li>
 			</ul>
