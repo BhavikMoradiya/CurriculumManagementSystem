@@ -73,7 +73,7 @@ if (!(isset($_SESSION["email"])))
 			</ul>
 		</div>
 		<div id="iframe" class="large-9 medium-9 columns">
-			<iframe src="admincp.php" name="bodyFrame" height="100%" width="100%" frameBorder="0"></iframe>
+			<iframe src="view_modfiymajor.php" name="bodyFrame" height="100%" width="100%" frameBorder="0"></iframe>
 		</div>
 	</div>
         <script src="js/vendor/jquery.min.js"></script>
