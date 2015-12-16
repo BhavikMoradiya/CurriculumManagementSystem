@@ -3,8 +3,6 @@
 session_start();
 //this is for testing change
 
-
-
 $id = $_GET['id'];
 $crid = $_GET['curid'];
 $sql = "select * from course_description where course_id = '$id' and curriculum_id = '$crid'";
@@ -49,17 +47,7 @@ if (isset($_POST['Submit']))
         }
         
         
-//if($row == mysqli_fetch_array($query))
-//{
-//$_SESSION['email']=$email;
-//
-// if(isset($re))
-// {
-// setcookie("email",$email,time()+3600);
-// }
     header("location:addcourstocurriculum.php");
-// 
-//}
 }
 ?>
 <html>
@@ -106,61 +94,47 @@ if (isset($_POST['Submit']))
                 </tr>
                 <tr>
                     <th>
-                        Add description:
+                        Description:
                     </th>
 
                     <td>
                         
                         <?php
-//                            $sql = "select * from course_description where course_id = '$id' and curriculum_id = '$crid'";
-//                            $result = $mysqli->query($sql);
-//                            $course_id = "";
-//                            $curriculum_id = "";
-//                            $course_description = "";
-//                            while($row = $result->fetch_assoc())
-//                            {
-//                                $course_id = $row["course_id"];
-//                                $curriculum_id = $row["curriculum_id"];
-//                            }
-                           
                             
                             if(is_null($course_id) && is_null($curriculum_id))
                             {
-                              
+                              echo 'This course and curriculum combination do not exist';
                             }
                             else
                             {
                             
-								$sql = "select description from course_description where course_id = '$id' and curriculum_id = '$crid'";
-								$result = $mysqli->query($sql);
-								while($row = $result->fetch_assoc())
-								{
-									$course_description = $row["description"];
-			   
-								}
-									
-									
-							}
+                            $sql = "select description from course_description where course_id = '$id' and curriculum_id = '$crid'";
+                            $result = $mysqli->query($sql);
+                            while($row = $result->fetch_assoc())
+                            {
+                                $course_description = $row["description"];
+           
+                            }
+                                
+                                
+                            }
                         ?>
+						<!-- 
                         <input type="hidden" value="<?php echo $hdntacdetails; ?>" name="hdntacdetails" />
                         <textarea name="tacdetails" id="editor1" rows="10" cols="50">
-                                    <?php echo $course_description ?>
+						-->
+							<div id="viewDesc">
+						
+                                    <p><?php echo $course_description ?></p>
+									
+							</div>
                                       
 
-                        </textarea>
-                        <script>
-                            // Replace the <textarea id="editor1"> with a CKEditor
-                            // instance, using default configuration.
-                            //			CKEDITOR.replace( 'editor1' );
-                            CKEDITOR.config.toolbar_MA = [['Source', '-', 'Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo', 'RemoveFormat', '-', 'Link', 'Unlink', 'Anchor', '-', 'Image', 'Table', 'HorizontalRule', 'SpecialChar'], '/', ['Format', 'Templates', 'Bold', 'Italic', 'Underline', '-', 'Superscript', '-', ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'], '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent']];
-                            CKEDITOR.replace('editor1',
-                                    {toolbar: 'MA'}
-                            );
-                        </script>
+                        <!-- </textarea> -->
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3" align="center"><input type="submit" value="Submit" name="Submit"></td>
+                    <!--<td colspan="3" align="center"><input type="submit" value="Submit" name="Submit"></td> -->
                 </tr>
             </table>            
         </form>

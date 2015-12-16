@@ -123,7 +123,7 @@ echo "Curriculum Year"." ".$y; ;
 
 	
     <tr>
-      <th height="22" colspan="8" bgcolor="#009966" scope="row"><div align="left" class="style5">Select Courses To Add To The Curriculm</div></th>
+      <th height="22" colspan="8" bgcolor="#009966" scope="row"><div align="left" class="style5">Select Courses To Add To The Curriculum</div></th>
     </tr>
     <tr>
       <td width="164" height="25" scope="row"><div align="center"><strong>Group Number </strong></div></td>
@@ -260,20 +260,23 @@ if ($result3->num_rows > 0) {
                                 
                             }
                           $dec;
+						  $link;
                      if($course_d1 == "")
                      {
                          
-//                        echo '<div align=center style=visibility: collapse><a href=addDescriptionForm.php?id='.$row['course_id'].'' ;
                          $dec = "Add ";
+						 $link = "addDescriptionForm.php";
                      }
                      else
                      {
+						 
                          $dec = "View/Update ";
+						 $link = "addDescriptionView.php";
                      }
                       //echo $dec;
            ?>
          
-             <div align="center"><a href="addDescriptionForm.php?id=<?php  echo $id1;?> &curid=<?php echo $curid; ?>"/a><?php echo $dec?> Description</div>
+             <div align="center"><a href="<?php  echo $link;?>?id=<?php  echo $id1;?> &curid=<?php echo $curid; ?>"/a><?php echo $dec?> Description</div>
           
            
                   
