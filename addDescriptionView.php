@@ -4,8 +4,6 @@
 session_start();
 //this is for testing change
 
-
-
 $id = $_GET['id'];
 $curid = $_GET['curid'];
 $sql = "select * from course_description where course_id = '$id' and curriculum_id = '$curid'";
@@ -32,43 +30,26 @@ $sql_1 = "select * from courses where course_id = '$id'";
                                 $course_code = $row["course_code"];
                                 $course_credit = $row["credits"];
                             }
-                                                  
-if (isset($_POST['Submit'])) 
-    {
-        $cdetail = $_POST["tacdetails"];
-            
-       if(isset($_POST["hdntacdetails"]) && $_POST["hdntacdetails"] > 0){ 
-        
-              $sql =  $mysqli->query("update course_description set description='$cdetail' where course_id='$id' ");
-             
-       }
-       if(isset($_POST["hdntacdetails"]) && $_POST["hdntacdetails"] == 0){ 
-        
-            $sql = $mysqli->query(sprintf("INSERT INTO `course_description`(`course_id`, `curriculum_id`, `description`) VALUES ( '%s','%s','%s')", $id, $curid, $cdetail));
-        }
 
-	$landing = "addDescriptionView.php?id=$id&curid=$curid";
-    header("location:$landing");
-}
+	if (isset($_POST['Submit'])) 
+    {
+		$landing = "addDescriptionForm.php?id=$id&curid=$curid";
+		header("location:$landing");
+	}
+					
 ?>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Add Description</title>
+        <title>View / Update Description</title>
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <script src="ckeditor/ckeditor.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
 		<?php include("style.css"); ?>
-        <script>
-            $(document).ready(function (e) {
-            });
-        </script>
+        <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
     </head>
 
     <body>
-
-
-        <form method="post" action="">
+		<form method="post" action="">
             <table style="width:95%" class="gradienttable">
 				<tr>
 					<th height="32" colspan="2" scope="row"><div align="center">
@@ -77,7 +58,7 @@ if (isset($_POST['Submit']))
 				</tr>
                 <tr>
                     <th height="32" scope="row"><div align="center">
-                        Course Code: 
+                        Course Code:
                     </th>
                     <td>
                         <div style="padding:0px 8px"><?php echo $course_code;?></div>
@@ -101,42 +82,26 @@ if (isset($_POST['Submit']))
                 </tr>
                 <tr>
                     <th height="32" scope="row"><div align="center">
-                        Add description:
+                        Description:
                     </th>
 
                     <td>
-                        
-                        <?php
-
-							$sql = "select description from course_description where course_id = '$id' and curriculum_id = '$curid'";
-							$result = $mysqli->query($sql);
-							while($row = $result->fetch_assoc())
-							{
-								$course_description = $row["description"];
-		   
-							}
-                        ?>
-                        <input type="hidden" value="<?php echo $hdntacdetails; ?>" name="hdntacdetails" />
-                        <textarea name="tacdetails" id="editor1" rows="10" cols="50">
+ 
+							<div>
 						
-                                    <?php echo $course_description ?>
-                                      
-                        </textarea>
-                        <script>
-                            // Replace the <textarea id="editor1"> with a CKEditor
-                            // instance, using default configuration.
-                            //			CKEDITOR.replace( 'editor1' );
-                            CKEDITOR.config.toolbar_MA = [['Source', '-', 'Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo', 'RemoveFormat', '-', 'Link', 'Unlink', 'Anchor', '-', 'Image', 'Table', 'HorizontalRule', 'SpecialChar'], '/', ['Format', 'Templates', 'Bold', 'Italic', 'Underline', '-', 'Superscript', '-', ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'], '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent']];
-                            CKEDITOR.replace('editor1',
-                                    {toolbar: 'MA'}
-                            );
-                        </script>
+                                <?php echo $course_description ?>
+									
+							</div>
                     </td>
                 </tr>
-                <tr height="32"><div align="center">
-                    <th colspan="3" align="center"><input type="submit" value="Submit Description" name="Submit"></th>
+				<tr>
+						<th colspan="2" height="32" align="center"><div align="center"><input type="submit" value="Update Description" name="Submit">
+					</th>
+				</tr>
+                <tr>
+                    <!--<td colspan="3" align="center"><input type="submit" value="Submit" name="Submit"></td> -->
                 </tr>
-            </table>            
-        </form>
+            </table> 
+		</form>
     </body>
 </html>
