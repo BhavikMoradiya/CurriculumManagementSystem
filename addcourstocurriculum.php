@@ -20,7 +20,7 @@ if (!(isset($_SESSION["email"])))
 
 <body>
 <form id="form1" name="form1" method="post" action="">
-  <table  class="gradienttable">
+  <table style="width:95%" class="gradienttable">
     <tr>
       <th height="21" colspan="2" bgcolor="#009966" scope="row"><div align="left"></div></th>
     </tr>
@@ -45,14 +45,14 @@ if (!(isset($_SESSION["email"])))
           <input type="submit" name="Submit" value="View Avalable Curriculums " /></th>
     </tr>
   </table>
-  
+  <p>&nbsp;</p>
   <?php
   
   if(isset($_POST['Submit']) AND $_POST['Submit'] == 'View Avalable Curriculums ')
 {
 $code= $_POST['list-target'];
 ?>
-  <table class="gradienttable">
+  <table style="width:95%" class="gradienttable">
     <tr>
       <th height="44" colspan="3" bgcolor="#339999" scope="row"><div align="left"><span class="style4">Avalable <strong>Curriculum</strong>s for</span> <?php 
 	  $sql = "SELECT major_name FROM majors WHERE major_code='$code'";
@@ -151,7 +151,7 @@ echo $full;
 }  else
 {
 
-echo'<div class="alert-box notice"><span>notice: </span>This Major Has No Currculm</div>';
+echo'<div class="alert-box notice"><span>notice: </span>This Major Has No Currculum</div>';
  
 }
  
