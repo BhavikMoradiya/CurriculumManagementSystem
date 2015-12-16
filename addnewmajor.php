@@ -21,7 +21,7 @@ include("includes/db_connection.php");
 <form id="form" name="form" method="post" action="addnewcur.php">
   <table class="gradienttable">
  <tr>
-    <td height="25" bgcolor="#009966"><span class="style2">Add New Major</span></td>
+    <th height="25" colspan="6" bgcolor="#009966"><span class="style2">Add New Major</span></th>
   </tr>
   <tr>
     <tr>

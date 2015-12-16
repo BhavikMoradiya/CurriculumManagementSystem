@@ -54,7 +54,7 @@ if(isset($_POST['Submit']) AND $_POST['Submit'] == 'Submit')
 <form id="form1" name="form1" method="post" action="">
   <table  class="gradienttable">
     <tr>
-      <th height="21" colspan="5" bgcolor="#009966" scope="row">&nbsp;</th>
+      <th height="25" colspan="5" bgcolor="#009966" scope="row">Add Courses</th>
     </tr>
     <tr>
       <td height="24" colspan="2" scope="row"><div align="left"><strong>Course Code</strong></div></td>

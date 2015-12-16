@@ -70,12 +70,8 @@ include("style.css");
 <body>
 <form id="form" name="form" method="post" action="">
 <table class="gradienttable">
-  
   <tr>
-    <td></th></td>
-  </tr>
-  <tr>
-    <td height="25" bgcolor="#009966"><span class="style2">Add New Curriculum</span></td>
+    <th height="25" colspan="6" bgcolor="#009966"><span class="style2">Add New Curriculum</span></th>
   </tr>
   <tr>
     <th width="150" height="35" bgcolor="#DCDCDC" scope="row">Select Option: </th>

@@ -1,7 +1,7 @@
 <?php
 $username='root';
 //$password=''; // blank password.
-$password='root'; //original password
+$password='7029'; //original password
 $database='cms';
 
 $mysqli = new mysqli('localhost', $username, $password, $database);

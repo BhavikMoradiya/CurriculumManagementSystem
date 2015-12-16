@@ -27,26 +27,34 @@ body {
 <body>
 <form  id="form" name="form" method="post" action="">
   <table class="gradienttable">
-    <tr>
-    <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
-    <input type="text" name="txtSearch" placeholder="Search by course name/code" style="width:200px; height:25px;" />
-    <input type="submit" value="Search" name="btnSearch"/>
+	<tr>
+		<th height="25" colspan="7" bgcolor="#009966" scope="row">View Modify Course</th>
     </tr>
-	 <tr>
-    <th height="26" colspan="8" bgcolor="#CCCCCC" scope="row"><div align="right">
-	<form name="semesterSort" action="" method="post">
-    <select name="semesterSelection">
-          <option>Filter Semester</option>
-          <option value="0">Fall</option>
-          <option value="1">Spring</option>
-          <option value="2">Both</option>
-     </select>
-	 <input type="submit" value="Submit" name="semesterBtn"/>
-	 </form>
+	
+    <tr>
+	
+
+	
+	
+		<td height="26" colspan="3" bgcolor="#CCCCCC" scope="row"><div align="center">
+		<input type="text" name="txtSearch" placeholder="Search by course name/code" style="width:200px; height:25px;" />
+		<input type="submit" value="Search" name="btnSearch"/>
+		</td>
+
+		<td height="26" colspan="3" bgcolor="#CCCCCC" scope="row"><div align="center">
+		<form name="semesterSort" action="" method="post">
+		<select name="semesterSelection">
+			<option>Filter Semester</option>
+			<option value="0">Fall</option>
+			<option value="1">Spring</option>
+			<option value="2">Both</option>
+		</select>
+		<input type="submit" value="Submit" name="semesterBtn"/>
+		</form>
+		</td>
+		
      </tr>
-    <tr>
-      <th height="21" colspan="7" bgcolor="#009966" scope="row">&nbsp;</th>
-    </tr>
+    
     <tr>
       <th width="82" height="32" scope="row"><div align="center">Delete</div></th>
       <th width="148"><div align="center">Course Code </div></th>

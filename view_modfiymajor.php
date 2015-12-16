@@ -13,20 +13,17 @@
 
 <form  id="form" name="form" method="post" action="">
   <table class="gradienttable">
-   <tr>
-    <td height="25" bgcolor="#009966"><span class="style2">View/Modify Majors</span></td>
-  </tr>
+	<tr>
+		<th height="35" colspan="6" bgcolor="#009966"><span class="style2">View/Modify Majors</span></th>
+	</tr>
+	<tr>
+		<th colspan="6" height="20" bgcolor="#009966" scope="row">Click on a Major Name to Edit</th>
+	</tr>
     <tr>
-      <th colspan="6" bgcolor="#009966" scope="row">Click on a Major Name to Edit</th>
-    </tr>
-	    <tr>
-      <th colspan="6" bgcolor="#009966" scope="row">&nbsp;</th>
-    </tr>
-    <tr>
-      <th width="100" scope="row"><div align="center">Delete</div></th>
-      <td width="169"><div align="center">Major Code </div></td>
-      <td width="424"><div align="center">Major Name </div></td>
-      <td width="289"><div align="center">Grad/Undergrad</div></td>
+	  <th width="100" scope="row"><div align="center">Delete</div></th>
+	  <td width="169"><div align="center">Major Code </div></td>
+	  <td width="424"><div align="center">Major Name </div></td>
+	  <td width="289"><div align="center">Grad/Undergrad</div></td>
     </tr>
 
 	<?php

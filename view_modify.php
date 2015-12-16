@@ -22,7 +22,7 @@ if (!(isset($_SESSION["email"])))
 <form id="form1" name="form1" method="post" action="">
   <table class="gradienttable">
     <tr>
-      <th height="21" colspan="2" bgcolor="#009966" scope="row"><div align="left"></div></th>
+      <th height="25" colspan="6" bgcolor="#009966" scope="row">View / Modify Curriculum<div align="left"></div></th>
     </tr>
     <tr>
       <th width="190" height="24" bgcolor="#DCDCDC" scope="row">Select Option : </th>
