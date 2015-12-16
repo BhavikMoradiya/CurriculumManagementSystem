@@ -1,4 +1,5 @@
 <?php include("includes/db_connection.php"); ?>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <?php
 session_start();
 //this is for testing change
@@ -6,8 +7,8 @@ session_start();
 
 
 $id = $_GET['id'];
-$crid = $_GET['curid'];
-$sql = "select * from course_description where course_id = '$id' and curriculum_id = '$crid'";
+$curid = $_GET['curid'];
+$sql = "select * from course_description where course_id = '$id' and curriculum_id = '$curid'";
                             $result = $mysqli->query($sql);
                             $course_id = "";
                             $curriculum_id = "";
@@ -18,6 +19,7 @@ $sql = "select * from course_description where course_id = '$id' and curriculum_
                                 $course_id = $row["course_id"];
                                 $curriculum_id = $row["curriculum_id"];
                                 $hdntacdetails = $row["id"];
+								$course_description = $row["description"];
                             }
 $sql_1 = "select * from courses where course_id = '$id'";
                             $result_1 = $mysqli->query($sql_1);
@@ -37,29 +39,16 @@ if (isset($_POST['Submit']))
             
        if(isset($_POST["hdntacdetails"]) && $_POST["hdntacdetails"] > 0){ 
         
-                
-              //  echo strlen($cdetail);
               $sql =  $mysqli->query("update course_description set description='$cdetail' where course_id='$id' ");
              
-        
        }
        if(isset($_POST["hdntacdetails"]) && $_POST["hdntacdetails"] == 0){ 
         
-            $sql = $mysqli->query(sprintf("INSERT INTO `course_description`(`course_id`, `curriculum_id`, `description`) VALUES ( '%s','%s','%s')", $id, $crid, $cdetail));
+            $sql = $mysqli->query(sprintf("INSERT INTO `course_description`(`course_id`, `curriculum_id`, `description`) VALUES ( '%s','%s','%s')", $id, $curid, $cdetail));
         }
-        
-        
-//if($row == mysqli_fetch_array($query))
-//{
-//$_SESSION['email']=$email;
-//
-// if(isset($re))
-// {
-// setcookie("email",$email,time()+3600);
-// }
-    header("location:addcourstocurriculum.php");
-// 
-//}
+
+	$landing = "addDescriptionView.php?id=$id&curid=$curid";
+    header("location:$landing");
 }
 ?>
 <html>
@@ -69,6 +58,7 @@ if (isset($_POST['Submit']))
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <script src="ckeditor/ckeditor.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+		<?php include("style.css"); ?>
         <script>
             $(document).ready(function (e) {
             });
@@ -79,74 +69,58 @@ if (isset($_POST['Submit']))
 
 
         <form method="post" action="">
-            <table>
+            <table style="width:95%" class="gradienttable">
+				<tr>
+					<th height="32" colspan="2" scope="row"><div align="center">
+						Course Description
+					</th>
+				</tr>
                 <tr>
-                    <th>
+                    <th height="32" scope="row"><div align="center">
                         Course Code: 
                     </th>
                     <td>
-                        <?php echo $course_code;?>
+                        <div style="padding:0px 8px"><?php echo $course_code;?></div>
                     </td>
                 </tr>
                 <tr>
-                    <th>
+                    <th height="32" scope="row"><div align="center">
                         Course Name:
                     </th>
                     <td>
-                        <?php echo $course_name;?>
+                        <div style="padding:0px 8px"><?php echo $course_name;?></div>
                     </td>
                 </tr>
                 <tr>
-                    <th>
+                    <th height="32" scope="row"><div align="center">
                         Course Credits:
                     </th>
                     <td>
-                        <?php echo $course_credit;?>
+                        <div style="padding:0px 8px"><?php echo $course_credit;?></div>
                     </td>
                 </tr>
                 <tr>
-                    <th>
+                    <th height="32" scope="row"><div align="center">
                         Add description:
                     </th>
 
                     <td>
                         
                         <?php
-//                            $sql = "select * from course_description where course_id = '$id' and curriculum_id = '$crid'";
-//                            $result = $mysqli->query($sql);
-//                            $course_id = "";
-//                            $curriculum_id = "";
-//                            $course_description = "";
-//                            while($row = $result->fetch_assoc())
-//                            {
-//                                $course_id = $row["course_id"];
-//                                $curriculum_id = $row["curriculum_id"];
-//                            }
-                           
-                            
-                            if(is_null($course_id) && is_null($curriculum_id))
-                            {
-                              
-                            }
-                            else
-                            {
-                            
-								$sql = "select description from course_description where course_id = '$id' and curriculum_id = '$crid'";
-								$result = $mysqli->query($sql);
-								while($row = $result->fetch_assoc())
-								{
-									$course_description = $row["description"];
-			   
-								}
-									
-									
+
+							$sql = "select description from course_description where course_id = '$id' and curriculum_id = '$curid'";
+							$result = $mysqli->query($sql);
+							while($row = $result->fetch_assoc())
+							{
+								$course_description = $row["description"];
+		   
 							}
                         ?>
                         <input type="hidden" value="<?php echo $hdntacdetails; ?>" name="hdntacdetails" />
                         <textarea name="tacdetails" id="editor1" rows="10" cols="50">
+						
                                     <?php echo $course_description ?>
                                       
-
                         </textarea>
                         <script>
                             // Replace the <textarea id="editor1"> with a CKEditor
@@ -159,8 +133,8 @@ if (isset($_POST['Submit']))
                         </script>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="3" align="center"><input type="submit" value="Submit" name="Submit"></td>
+                <tr height="32"><div align="center">
+                    <th colspan="3" align="center"><input type="submit" value="Submit Description" name="Submit"></th>
                 </tr>
             </table>            
         </form>
