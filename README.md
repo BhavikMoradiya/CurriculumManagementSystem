@@ -1,4 +1,7 @@
 # CurriculumManagementSystem
+
+https://github.com/BhavikMoradiya/CurriculumManagementSystem
+
 Completed on 12/16/15
 
 Group Project for Personal Software Process Fall 2015. Site originally created by Hussain Almaleki.
